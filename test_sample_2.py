@@ -45,6 +45,7 @@ magnitude = np.abs(fft_result)
 counter = 0
 
 while True:
+    #Popping 10 samples from the list and adding new samples into it
     if serialInst.in_waiting > 20:
         starttime = time.time()
         counter += 1
@@ -57,17 +58,31 @@ while True:
         #Performing FFT and limiting to 8-13 Hz
         fft_result = np.fft.fft(eeg_data)
         frequencies = np.fft.fftfreq(len(eeg_data), 1/fs)
+        magnitude = np.abs(fft_result)
+        print(frequencies)
+        print(magnitude)
 
-        mask = (frequencies >= 8) & (frequencies <= 13)
-        filtered_results = fft_result[mask]
+        #Low alpha hertz frequencies
+        mask = (frequencies >= 8) & (frequencies <= 9)
+        filtered_low_alpha_results = fft_result[mask]
 
-        magnitude = np.abs(filtered_results)
-        mean = np.mean(magnitude)
+        #Averaging both the values of low alpha waves
+        magnitude = np.abs(filtered_low_alpha_results)
+        mean1 = np.mean(magnitude)
+
+        #High alpha hertz frequencies
+        mask = (frequencies >= 10) & (frequencies <= 12)
+        filtered_high_alpha_results = fft_result[mask]
+
+        #Averaging both the values of low alpha waves
+        magnitude = np.abs(filtered_high_alpha_results)
+        mean2 = np.mean(magnitude)
 
         endtime = time.time()
 
         print(f"\n\n\nLength of EEG Data {len(eeg_data)}")
-        print(f"Power of Alpha Waves {mean}")
+        print(f"Power of Low Alpha Waves {mean1}")
+        print(f"Power of High Alpha Waves {mean2}")
         print(f"Time duration {endtime-starttime}")
         print(f"Iteration {counter}")
     else:
