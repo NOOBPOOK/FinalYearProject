@@ -1,0 +1,84 @@
+import serial
+import matplotlib.pyplot as plt
+import time
+import numpy as np
+
+#Creating an instance object 
+serialInst = serial.Serial()
+
+#Setting up the connection
+serialInst.port = "COM3"
+serialInst.baudrate = 500000
+serialInst.open()
+
+#Sampling rate (that is 200 samples per second)
+fs = 200 
+frequencies = None
+fft_result = None
+
+eeg_data = []
+print("Program start")
+start = time.time()
+
+#First fill the EEG data with 200 samples
+while True:
+    if len(eeg_data) == 200:
+        break
+    if serialInst.in_waiting:
+        try:
+            bytes = serialInst.read(2)
+            received_value = int(bytes[0] + (bytes[1] << 8))
+            eeg_data.append(received_value)
+        except Exception as e:
+            print(e)
+
+        endtime = time.time()
+
+print(f"The length of EEG data {len(eeg_data)}")
+print(f"The time to fill 200 samples {endtime-start}")
+
+fft_result = np.fft.fft(eeg_data)
+frequencies = np.fft.fftfreq(len(eeg_data), 1/fs)
+magnitude = np.abs(fft_result)
+
+#Counter Declaration
+counter = 0
+
+while True:
+    if serialInst.in_waiting > 20:
+        starttime = time.time()
+        counter += 1
+        eeg_data = eeg_data[10:]
+        for y in range(10):
+            bytes = serialInst.read(2)
+            received_value = int(bytes[0] + (bytes[1] << 8))
+            eeg_data.append(received_value)
+
+        #Performing FFT and limiting to 8-13 Hz
+        fft_result = np.fft.fft(eeg_data)
+        frequencies = np.fft.fftfreq(len(eeg_data), 1/fs)
+
+        mask = (frequencies >= 8) & (frequencies <= 13)
+        filtered_results = fft_result[mask]
+
+        magnitude = np.abs(filtered_results)
+        mean = np.mean(magnitude)
+
+        endtime = time.time()
+
+        print(f"\n\n\nLength of EEG Data {len(eeg_data)}")
+        print(f"Power of Alpha Waves {mean}")
+        print(f"Time duration {endtime-starttime}")
+        print(f"Iteration {counter}")
+    else:
+        pass
+        #print("Not enough data available")
+
+
+
+
+
+
+        
+
+
