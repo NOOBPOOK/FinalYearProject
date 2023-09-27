@@ -25,6 +25,7 @@ void setup() {
 
 void loop() {
     // Expect packets about once per second.
+    Serial.println("Code works till here");
     if (brain.update()) {
         Serial.println(brain.readCSV());
 
