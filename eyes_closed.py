@@ -1,3 +1,8 @@
+"""
+Program detects if eyes are closed or not by studying the alpha waves 8-13 Hz
+Electrode placements: Black(-in) on forehead, Yellow(Ref) on ear lobe, Red(in+) on back
+"""
+
 import serial
 import matplotlib.pyplot as plt
 import time
@@ -16,14 +21,23 @@ fs = 100
 frequencies = None
 fft_result = None
 
+"""
+Threshold value. More the value more pressure to get eyes closed so that the movement can be detected.
+More value more pressure and vice versa
+"""
+
+threshold_freq = 550
+
 
 light = []
 
 eeg_data = []
 print("Program start")
+print(f"OOOOOO stands for Eyes Opened")
+print(f"XXXXXX stands for Eyes Closed")
 start = time.time()
 serialInst.write("0".encode())
-ledState = 0
+ledState = "OOOOOO"
 
 #First fill the EEG data with 200 samples
 while True:
@@ -80,10 +94,12 @@ while True:
 
         endtime = time.time()
 
+        """
         print(f"\n\n\nLength of EEG Data {len(eeg_data)}")
         print(f"Power of Low Alpha Waves {mean1}")
         print(f"Time duration {endtime-starttime}")
         print(f"Iteration {counter}")
+        """
 
         light.append(mean1)
 
@@ -92,14 +108,17 @@ while True:
         if len(light) > 5:
             light.pop(0)
         
-        if all(x > 700  for x in light):
-            if ledState != 1:
-                serialInst.write("1".encode())
-                ledState = 1
+        if all(x > threshold_freq  for x in light):
+            if ledState != "XXXXXX":
+                #serialInst.write("1".encode())
+                ledState = "XXXXXX"
+
         else:
-            if ledState == 1:
-                serialInst.write("0".encode())
-                ledState = 0
+            if ledState == "XXXXXX":
+                #serialInst.write("0".encode())
+                ledState = "OOOOOO"
+
+        print(f"{ledState}\n")
 
     else:
         pass
