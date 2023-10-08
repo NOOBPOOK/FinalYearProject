@@ -1,0 +1,1014 @@
+
+Power of Low Alpha Waves 563.4959248556092
+Power of Low Gamma Waves 1072.5133600203633
+Time duration 0.017193317413330078
+Iteration 404
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 816.6299551618406
+Power of Low Gamma Waves 1068.6414644074753
+Time duration 0.005009174346923828
+Iteration 405
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 781.5940509375384
+Power of Low Gamma Waves 1051.969460634886
+Time duration 0.0
+Iteration 406
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 818.1703607924171
+Power of Low Gamma Waves 968.4111208397004
+Time duration 0.010008096694946289
+Iteration 407
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 647.4398717179621
+Power of Low Gamma Waves 934.336267222909
+Time duration 0.006995439529418945
+Iteration 408
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 653.8315860512732
+Power of Low Gamma Waves 938.9687582311697
+Time duration 0.015062093734741211
+Iteration 409
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 685.3749813437621
+Power of Low Gamma Waves 944.1048727515631
+Time duration 0.0
+Iteration 410
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 662.1964730620018
+Power of Low Gamma Waves 886.7930623402615
+Time duration 0.014712810516357422
+Iteration 411
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 667.2891420290484
+Power of Low Gamma Waves 751.5180195793387
+Time duration 0.0040090084075927734
+Iteration 412
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 734.9784216589176
+Power of Low Gamma Waves 770.8747650213933
+Time duration 0.0035572052001953125
+Iteration 413
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 649.9764292420138
+Power of Low Gamma Waves 554.0798786398019
+Time duration 0.0041005611419677734
+Iteration 414
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 728.5428940039304
+Power of Low Gamma Waves 651.1387539531273
+Time duration 0.002010345458984375
+Iteration 415
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 541.4323957359354
+Power of Low Gamma Waves 612.589008037582
+Time duration 0.0049974918365478516
+Iteration 416
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 604.9129416799506
+Power of Low Gamma Waves 572.6055456873437
+Time duration 0.003998756408691406
+Iteration 417
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 690.538425047486
+Power of Low Gamma Waves 614.4280578452314
+Time duration 0.00299835205078125
+Iteration 418
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 615.6875539588558
+Power of Low Gamma Waves 728.7003118633544
+Time duration 0.007978439331054688
+Iteration 419
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 822.1852849406866
+Power of Low Gamma Waves 816.879679596972
+Time duration 0.0
+Iteration 420
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 733.5828092299795
+Power of Low Gamma Waves 747.1821437390557
+Time duration 0.0030083656311035156
+Iteration 421
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 691.956709862078
+Power of Low Gamma Waves 811.2316578148617
+Time duration 0.015731096267700195
+Iteration 422
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 772.8479096737236
+Power of Low Gamma Waves 836.8676679528867
+Time duration 0.0
+Iteration 423
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 930.8190671025744
+Power of Low Gamma Waves 821.0218825004307
+Time duration 0.0019910335540771484
+Iteration 424
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 934.6144991442076
+Power of Low Gamma Waves 846.9890635300867
+Time duration 0.0067598819732666016
+Iteration 425
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 873.7684503386115
+Power of Low Gamma Waves 808.1369780485103
+Time duration 0.004761219024658203
+Iteration 426
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 839.6591258244404
+Power of Low Gamma Waves 768.3672097368731
+Time duration 0.007505655288696289
+Iteration 427
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 851.6095801289212
+Power of Low Gamma Waves 658.7865326544378
+Time duration 0.006674528121948242
+Iteration 428
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 911.8842250198883
+Power of Low Gamma Waves 743.1259168241966
+Time duration 0.015222549438476562
+Iteration 429
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 774.9160424989095
+Power of Low Gamma Waves 722.480036231822
+Time duration 0.008361577987670898
+Iteration 430
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 831.3107380576848
+Power of Low Gamma Waves 742.7338831416054
+Time duration 0.011985540390014648
+Iteration 431
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 824.3367560694229
+Power of Low Gamma Waves 698.7279910757301
+Time duration 0.004988908767700195
+Iteration 432
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 780.3483700250811
+Power of Low Gamma Waves 749.3936077822559
+Time duration 0.0009925365447998047
+Iteration 433
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 749.4910182864305
+Power of Low Gamma Waves 739.4653366642306
+Time duration 0.003981828689575195
+Iteration 434
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 731.098579096714
+Power of Low Gamma Waves 833.260988470647
+Time duration 0.004013776779174805
+Iteration 435
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 695.2943245598938
+Power of Low Gamma Waves 799.3366018775338
+Time duration 0.0070111751556396484
+Iteration 436
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 705.6122267091694
+Power of Low Gamma Waves 778.6487219951817
+Time duration 0.00512242317199707
+Iteration 437
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 576.5404509912163
+Power of Low Gamma Waves 783.7204861198356
+Time duration 0.003438234329223633
+Iteration 438
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 512.1803352152165
+Power of Low Gamma Waves 859.7902571960517
+Time duration 0.0050046443939208984
+Iteration 439
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 679.2184409104602
+Power of Low Gamma Waves 1032.1614395265842
+Time duration 0.03286266326904297
+Iteration 440
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 697.4964274793454
+Power of Low Gamma Waves 999.2017789509093
+Time duration 0.0
+Iteration 441
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 773.8040173498059
+Power of Low Gamma Waves 940.280110322054
+Time duration 0.0
+Iteration 442
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 774.7497284740226
+Power of Low Gamma Waves 1023.4541710206863
+Time duration 0.0
+Iteration 443
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 794.3015974614514
+Power of Low Gamma Waves 896.2990575603028
+Time duration 0.004978656768798828
+Iteration 444
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 744.707406507305
+Power of Low Gamma Waves 832.6798730181553
+Time duration 0.0029892921447753906
+Iteration 445
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 760.0841718308891
+Power of Low Gamma Waves 827.2877245177576
+Time duration 0.005219697952270508
+Iteration 446
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 767.1310838717338
+Power of Low Gamma Waves 945.0366821201028
+Time duration 0.003997325897216797
+Iteration 447
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 731.336680898378
+Power of Low Gamma Waves 1025.7554594576106
+Time duration 0.0078029632568359375
+Iteration 448
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 699.7146880615722
+Power of Low Gamma Waves 1079.5175171065894
+Time duration 0.01299905776977539
+Iteration 449
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 660.8955437885875
+Power of Low Gamma Waves 1078.8979617841358
+Time duration 0.012749433517456055
+Iteration 450
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 679.8199779993748
+Power of Low Gamma Waves 947.6916162347061
+Time duration 0.006902217864990234
+Iteration 451
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 516.8196718325423
+Power of Low Gamma Waves 932.3652507971012
+Time duration 0.0031158924102783203
+Iteration 452
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 449.1657326761647
+Power of Low Gamma Waves 776.2689310057566
+Time duration 0.0
+Iteration 453
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 491.1914877051998
+Power of Low Gamma Waves 765.55564977574
+Time duration 0.0009949207305908203
+Iteration 454
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 483.7600635996961
+Power of Low Gamma Waves 788.3791425913028
+Time duration 0.004997730255126953
+Iteration 455
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 489.494793408907
+Power of Low Gamma Waves 861.0640729618437
+Time duration 0.008697032928466797
+Iteration 456
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 338.20932399903603
+Power of Low Gamma Waves 639.0936893811376
+Time duration 0.007075071334838867
+Iteration 457
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 289.8983491012605
+Power of Low Gamma Waves 630.714908853006
+Time duration 0.006237030029296875
+Iteration 458
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 403.9966096379373
+Power of Low Gamma Waves 762.7030182878469
+Time duration 0.0039997100830078125
+Iteration 459
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 228.7930989112656
+Power of Low Gamma Waves 790.1562644000986
+Time duration 0.0009815692901611328
+Iteration 460
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 571.8789362299251
+Power of Low Gamma Waves 770.9590801570055
+Time duration 0.0020127296447753906
+Iteration 461
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 437.884948520305
+Power of Low Gamma Waves 782.0986143848478
+Time duration 0.0039958953857421875
+Iteration 462
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 499.4279469441499
+Power of Low Gamma Waves 785.3444258505865
+Time duration 0.006003141403198242
+Iteration 463
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 471.8112042707915
+Power of Low Gamma Waves 845.2274034874795
+Time duration 0.006529808044433594
+Iteration 464
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 436.4681436966597
+Power of Low Gamma Waves 891.8532114309314
+Time duration 0.007006168365478516
+Iteration 465
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 619.0435464654453
+Power of Low Gamma Waves 780.5695968388063
+Time duration 0.006991863250732422
+Iteration 466
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 591.7558468591702
+Power of Low Gamma Waves 774.2861501976305
+Time duration 0.0
+Iteration 467
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 657.9570291908176
+Power of Low Gamma Waves 665.2013375971281
+Time duration 0.001989603042602539
+Iteration 468
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 583.4127966369234
+Power of Low Gamma Waves 836.7243093262823
+Time duration 0.008648157119750977
+Iteration 469
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 583.5382503028266
+Power of Low Gamma Waves 772.1056781248725
+Time duration 0.005991458892822266
+Iteration 470
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 601.1145879662374
+Power of Low Gamma Waves 763.2369822691172
+Time duration 0.005013227462768555
+Iteration 471
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 647.6560802280281
+Power of Low Gamma Waves 755.0035801468173
+Time duration 0.00911402702331543
+Iteration 472
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 636.9462739484046
+Power of Low Gamma Waves 824.4483882968591
+Time duration 0.006993293762207031
+Iteration 473
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 709.6178494221217
+Power of Low Gamma Waves 865.8189073538786
+Time duration 0.011468172073364258
+Iteration 474
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 739.144975091452
+Power of Low Gamma Waves 867.8690751095892
+Time duration 0.004004955291748047
+Iteration 475
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 686.7437889371731
+Power of Low Gamma Waves 704.7951313302268
+Time duration 0.0
+Iteration 476
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 679.821241672865
+Power of Low Gamma Waves 793.837599769099
+Time duration 0.003973960876464844
+Iteration 477
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 731.3127700825592
+Power of Low Gamma Waves 831.2267468336681
+Time duration 0.008012771606445312
+Iteration 478
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 780.233617427591
+Power of Low Gamma Waves 957.8142056025355
+Time duration 0.0
+Iteration 479
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 752.5795252239092
+Power of Low Gamma Waves 1110.8575451963166
+Time duration 0.005017280578613281
+Iteration 480
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 582.4584911223128
+Power of Low Gamma Waves 1174.1981609600973
+Time duration 0.00924825668334961
+Iteration 481
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 661.1402129569642
+Power of Low Gamma Waves 1112.4254019420584
+Time duration 0.011435985565185547
+Iteration 482
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 548.269293577694
+Power of Low Gamma Waves 1115.8532447935852
+Time duration 0.0
+Iteration 483
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 443.4576157560224
+Power of Low Gamma Waves 1105.0726535328947
+Time duration 0.014124870300292969
+Iteration 484
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 401.37681136674945
+Power of Low Gamma Waves 1147.8178823149976
+Time duration 0.0020143985748291016
+Iteration 485
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 545.6327057703838
+Power of Low Gamma Waves 1230.782571671252
+Time duration 0.006003141403198242
+Iteration 486
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 546.0076129895367
+Power of Low Gamma Waves 1290.4439718345527
+Time duration 0.0019979476928710938
+Iteration 487
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 540.6688814199348
+Power of Low Gamma Waves 1379.5135483524696
+Time duration 0.010206937789916992
+Iteration 488
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 547.047370998871
+Power of Low Gamma Waves 1201.066080764678
+Time duration 0.003996372222900391
+Iteration 489
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 603.36409205152
+Power of Low Gamma Waves 1089.9588471949862
+Time duration 0.0029845237731933594
+Iteration 490
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 544.7740072719066
+Power of Low Gamma Waves 1062.6440012828336
+Time duration 0.0029985904693603516
+Iteration 491
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 743.4239354705886
+Power of Low Gamma Waves 973.4316224407665
+Time duration 0.0
+Iteration 492
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 740.4995092471843
+Power of Low Gamma Waves 930.6999161892404
+Time duration 0.003998517990112305
+Iteration 493
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 730.6590194831347
+Power of Low Gamma Waves 840.8621372426594
+Time duration 0.002987384796142578
+Iteration 494
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 766.96964311554
+Power of Low Gamma Waves 819.9637625982409
+Time duration 0.001987457275390625
+Iteration 495
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 755.735414447882
+Power of Low Gamma Waves 779.0450760993892
+Time duration 0.002990245819091797
+Iteration 496
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 829.3514624771702
+Power of Low Gamma Waves 867.353854590665
+Time duration 0.003980398178100586
+Iteration 497
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 740.5752599644723
+Power of Low Gamma Waves 774.0556469805204
+Time duration 0.0029964447021484375
+Iteration 498
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 724.7349400903419
+Power of Low Gamma Waves 769.7037899475563
+Time duration 0.00806117057800293
+Iteration 499
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 820.8489163980518
+Power of Low Gamma Waves 768.8954863833015
+Time duration 0.0019884109497070312
+Iteration 500
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 738.5998903436132
+Power of Low Gamma Waves 739.4065599198012
+Time duration 0.008985042572021484
+Iteration 501
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 533.1886286359083
+Power of Low Gamma Waves 723.026461364388
+Time duration 0.0029854774475097656
+Iteration 502
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 612.8094024585827
+Power of Low Gamma Waves 734.9936827764072
+Time duration 0.003999948501586914
+Iteration 503
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 593.7347500274609
+Power of Low Gamma Waves 699.1800142004827
+Time duration 0.00952458381652832
+Iteration 504
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 733.8302758675819
+Power of Low Gamma Waves 725.8532179495737
+Time duration 0.009879589080810547
+Iteration 505
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 828.9639857971964
+Power of Low Gamma Waves 646.5734483770599
+Time duration 0.0019867420196533203
+Iteration 506
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 923.3644143912192
+Power of Low Gamma Waves 710.8900485660258
+Time duration 0.009824514389038086
+Iteration 507
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 922.0850183362761
+Power of Low Gamma Waves 771.363341506305
+Time duration 0.009992599487304688
+Iteration 508
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 856.9392060671089
+Power of Low Gamma Waves 796.3890767088814
+Time duration 0.0035326480865478516
+Iteration 509
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 762.1540585712489
+Power of Low Gamma Waves 893.545911821408
+Time duration 0.0021064281463623047
+Iteration 510
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 804.9120579606273
+Power of Low Gamma Waves 880.8141901347907
+Time duration 0.002983570098876953
+Iteration 511
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 808.9649147820005
+Power of Low Gamma Waves 877.1622773362637
+Time duration 0.0015234947204589844
+Iteration 512
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 895.5530233040934
+Power of Low Gamma Waves 843.4963659633781
+Time duration 0.0009996891021728516
+Iteration 513
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 837.8333893158749
+Power of Low Gamma Waves 799.0552379792065
+Time duration 0.0019867420196533203
+Iteration 514
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 835.6960080546411
+Power of Low Gamma Waves 771.964324262616
+Time duration 0.0019903182983398438
+Iteration 515
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 756.703064538138
+Power of Low Gamma Waves 975.263109642112
+Time duration 0.00498509407043457
+Iteration 516
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 822.5090312291616
+Power of Low Gamma Waves 923.7230758887766
+Time duration 0.005007028579711914
+Iteration 517
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 829.1755798198461
+Power of Low Gamma Waves 982.8543678484083
+Time duration 0.003995656967163086
+Iteration 518
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 827.8608586426956
+Power of Low Gamma Waves 1005.0722286055745
+Time duration 0.004970073699951172
+Iteration 519
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 809.3303753513695
+Power of Low Gamma Waves 874.5382921087235
+Time duration 0.003996610641479492
+Iteration 520
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 868.0693830479955
+Power of Low Gamma Waves 838.3117063928258
+Time duration 0.010006427764892578
+Iteration 521
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 987.2327372074744
+Power of Low Gamma Waves 898.9205822112916
+Time duration 6.961822509765625e-05
+Iteration 522
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 818.7296782207276
+Power of Low Gamma Waves 989.9407703563647
+Time duration 0.005997180938720703
+Iteration 523
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 579.597784008047
+Power of Low Gamma Waves 1068.2431755367063
+Time duration 0.006995677947998047
+Iteration 524
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 575.707140512993
+Power of Low Gamma Waves 1037.6588667798244
+Time duration 0.008990049362182617
+Iteration 525
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 645.7903143007989
+Power of Low Gamma Waves 1065.1963498493253
+Time duration 0.005997657775878906
+Iteration 526
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 547.1481639181916
+Power of Low Gamma Waves 1146.8604616630957
+Time duration 0.012984752655029297
+Iteration 527
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 845.1524982272092
+Power of Low Gamma Waves 1013.5034793246767
+Time duration 0.003674030303955078
+Iteration 528
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 767.9339390626145
+Power of Low Gamma Waves 972.3356911552778
+Time duration 0.007982969284057617
+Iteration 529
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 806.0804778678441
+Power of Low Gamma Waves 839.3288104284485
+Time duration 0.021706342697143555
+Iteration 530
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 807.0012864973958
+Power of Low Gamma Waves 815.8305503348995
+Time duration 0.003000974655151367
+Iteration 531
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 858.8435775501852
+Power of Low Gamma Waves 801.8527500804408
+Time duration 0.014078855514526367
+Iteration 532
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 893.1184858023238
+Power of Low Gamma Waves 813.7204429942559
+Time duration 0.005000591278076172
+Iteration 533
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 789.1086917420614
+Power of Low Gamma Waves 853.2861665058451
+Time duration 0.004546403884887695
+Iteration 534
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 709.7143974810238
+Power of Low Gamma Waves 865.8608098365386
+Time duration 0.00099945068359375
+Iteration 535
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 1125.0713445179802
+Power of Low Gamma Waves 891.6708027074852
+Time duration 0.001981019973754883
+Iteration 536
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 1067.0955501232334
+Power of Low Gamma Waves 938.7819559836884
+Time duration 0.0
+Iteration 537
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 996.03714647977
+Power of Low Gamma Waves 1039.1217292493327
+Time duration 0.0019910335540771484
+Iteration 538
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 979.2190257686561
+Power of Low Gamma Waves 997.7663919723786
+Time duration 0.000982046127319336
+Iteration 539
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 1001.9834682761937
+Power of Low Gamma Waves 1018.6350948478711
+Time duration 0.00200653076171875
+Iteration 540
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 980.359084824768
+Power of Low Gamma Waves 1031.016138901877
+Time duration 0.002992868423461914
+Iteration 541
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 1025.6603219992253
+Power of Low Gamma Waves 1042.3777126572527
+Time duration 0.006005764007568359
+Iteration 542
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 937.3009889830416
+Power of Low Gamma Waves 1074.0702487162623
+Time duration 0.0039942264556884766
+Iteration 543
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 929.2523524703731
+Power of Low Gamma Waves 1089.9775657635118
+Time duration 0.004988908767700195
+Iteration 544
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 774.4027718682468
+Power of Low Gamma Waves 1206.4713385190414
+Time duration 0.003987550735473633
+Iteration 545
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 563.8465546428093
+Power of Low Gamma Waves 1249.4265602534972
+Time duration 0.0060079097747802734
+Iteration 546
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 584.0349164694528
+Power of Low Gamma Waves 1047.3468109498826
+Time duration 0.004006862640380859
+Iteration 547
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 532.636600925284
+Power of Low Gamma Waves 1124.5413844172797
+Time duration 0.013405323028564453
+Iteration 548
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 588.4639016333547
+Power of Low Gamma Waves 1083.511484459662
+Time duration 0.0029947757720947266
+Iteration 549
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 535.4677845202966
+Power of Low Gamma Waves 1029.2575868487393
+Time duration 0.002989053726196289
+Iteration 550
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 660.1957024703789
+Power of Low Gamma Waves 1037.7028766722867
+Time duration 0.003989696502685547
+Iteration 551
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 611.1270344720537
+Power of Low Gamma Waves 1032.8824119711974
+Time duration 0.002996683120727539
+Iteration 552
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 623.3998620152422
+Power of Low Gamma Waves 1018.6900408054
+Time duration 0.0035576820373535156
+Iteration 553
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 750.9596156313925
+Power of Low Gamma Waves 935.0718705581457
+Time duration 0.0029876232147216797
+Iteration 554
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 731.7277353179742
+Power of Low Gamma Waves 841.5532045902892
+Time duration 0.00099945068359375
+Iteration 555
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 693.2852467949372
+Power of Low Gamma Waves 829.3741912795978
+Time duration 0.001991748809814453
+Iteration 556
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 740.9944198392762
+Power of Low Gamma Waves 831.2436681147188
+Time duration 0.0019998550415039062
+Iteration 557
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 790.79425188152
+Power of Low Gamma Waves 1022.8653084992943
+Time duration 0.0
+Iteration 558
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 840.2321812376607
+Power of Low Gamma Waves 813.4961702850031
+Time duration 0.0009982585906982422
+Iteration 559
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 814.0838855144701
+Power of Low Gamma Waves 801.962861187802
+Time duration 0.023974895477294922
+Iteration 560
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 726.1497670592569
+Power of Low Gamma Waves 1014.4602028285415
+Time duration 0.006997108459472656
+Iteration 561
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 690.1153026922888
+Power of Low Gamma Waves 1047.8072356921575
+Time duration 0.057382822036743164
+Iteration 562
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 727.1593119457337
+Power of Low Gamma Waves 1180.532745175447
+Time duration 0.007157325744628906
+Iteration 563
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 797.3465405104276
+Power of Low Gamma Waves 1234.4585978722343
+Time duration 0.002979755401611328
+Iteration 564
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 734.127113880663
+Power of Low Gamma Waves 1310.328376409598
+Time duration 0.01725292205810547
+Iteration 565
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 729.3911256288104
+Power of Low Gamma Waves 1387.9091958148204
+Time duration 0.0051043033599853516
+Iteration 566
+Eyes Status :   XXXXXX
+
+Power of Low Alpha Waves 530.0199397851331
+Power of Low Gamma Waves 1331.1474530165644
+Time duration 0.008811712265014648
+Iteration 567
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 403.6238262395435
+Power of Low Gamma Waves 1157.166084688026
+Time duration 0.0050051212310791016
+Iteration 568
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 383.0734142680702
+Power of Low Gamma Waves 1150.248617840531
+Time duration 0.00099945068359375
+Iteration 569
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 588.3322051637467
+Power of Low Gamma Waves 1125.8306137454408
+Time duration 0.0029878616333007812
+Iteration 570
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 539.3508741643532
+Power of Low Gamma Waves 949.035734379763
+Time duration 0.001999378204345703
+Iteration 571
+Eyes Status :   OOOOOO
+
+Power of Low Alpha Waves 622.8824114496717
+Power of Low Gamma Waves 857.1056034558856
+Time duration 0.001989126205444336
+Iteration 572
+Eyes Status :   OOOOOO
