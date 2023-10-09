@@ -20,5 +20,5 @@ from sklearn.metrics import accuracy_score
 # Make predictions on the test data
 y_pred = model.predict(xtest)
 
-joblib.dump(model,'focusNormalModel1.pkl')
+joblib.dump(model,'focusNormalModel.pkl')
 print("Model saved successfully")
