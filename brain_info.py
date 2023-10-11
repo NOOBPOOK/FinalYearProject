@@ -13,7 +13,7 @@ import csv
 serialInst = serial.Serial()
 
 #Setting up the connection
-serialInst.port = "COM3"
+serialInst.port = "COM5"
 serialInst.baudrate = 500000
 serialInst.open()
 
@@ -29,14 +29,14 @@ More value more pressure and vice versa
 threshold_freq = 700
 
 #Creating the CSV file which will conatin values
-file_path = "C:/Users/hp/Documents/GitHub/FinalYearProject/eeg_data/BlackFrontRedBack/EventEEG/focuscar5.csv"
+file_path = "C:/Users/iteja/OneDrive/Documents/GitHub/FinalYearProject/eeg_data/BlackFrontRedBack/swayam_data/EyesClosedData/LongEyesClosed/eyesclosed1.csv"
 eeg_file = open(file_path, mode = 'w')
 writer = csv.writer(eeg_file, lineterminator="\n")
-writer.writerow(['Timestamp','Iterations','LowAlpha','LowAlphaPhase','HighAlpha','HighAlphaPhase','LowBeta','LowBetaPhase','HighBeta','HighBetaPhase','LowGamma','LowGammePhase','HighGamma','HighGammaPhase','EyeStatus'])
+writer.writerow(['Timestamp','Iterations','LowAlpha','LowAlphaPhase','HighAlpha','HighAlphaPhase','LowBeta','LowBetaPhase','HighBeta','HighBetaPhase','LowGamma','LowGammePhase','HighGamma','HighGammaPhase'])
 
 """
 Table Order
-Timestamp, Iterations, LowAlpha, LowAlphaPhase, HighAlpha, HighAlphaPhase, LowBeta, LowBetaPhase, HighBeta, HighBetaPhase, LowGamma, LowGammaPhase, HighGamma, HighGammaPhase, EyeStatus
+Timestamp, Iterations, LowAlpha, LowAlphaPhase, HighAlpha, HighAlphaPhase, LowBeta, LowBetaPhase, HighBeta, HighBetaPhase, LowGamma, LowGammaPhase, HighGamma, HighGammaPhase
 """
 
 light = []
@@ -192,30 +192,14 @@ while True:
 
             #Inserting Values into CSV Sheet
             if counter > 500:
+                if counter == 500:
+                    print("Data collection started")
+
                 writer.writerow([(endtime-start),counter,
                                  lowAlpha,lowAlphaPhase,highAlpha,highAlphaPhase,
                                  lowBeta,lowBetaPhase,highBeta,highBetaPhase,
-                                 lowGamma,lowGammaPhase,highGamma,highGammaPhase,
-                                 ledState])
+                                 lowGamma,lowGammaPhase,highGamma,highGammaPhase])
 
-            light.append(lowAlpha)
-
-            #print(f"Mean Values{light}")
-
-            if len(light) > 5:
-                light.pop(0)
-            
-            if all(x > threshold_freq  for x in light):
-                if ledState != "XXXXXX":
-                    #serialInst.write("1".encode())
-                    ledState = "XXXXXX"
-
-            else:
-                if ledState == "XXXXXX":
-                    #serialInst.write("0".encode())
-                    ledState = "OOOOOO"
-
-            print(f"Eyes Status :   {ledState}\n")
 
         else:
             pass
