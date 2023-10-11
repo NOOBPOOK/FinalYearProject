@@ -16,7 +16,7 @@ serialInst = serial.Serial()
 serialInst.port = "COM5"
 serialInst.baudrate = 500000
 serialInst.open()
-
+`   `
 #Sampling rate (that is 200 samples per second)
 fs = 100 
 frequencies = None
