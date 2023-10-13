@@ -1,29 +1,32 @@
 import serial
 
-serialinst = serial.Serial("COM3", baudrate=9600)
-
-serialinst.open()
+serialinst = serial.Serial("COM4", baudrate=500000)
 
 while True:
-    dir = []
-    dir = list(map(int, input("Enter your direction here >> ").split()))
+    dir = int(input("Enter your direction here >> "))
 
     #Controlling Signals
+
     #Forward
-    if 0 in dir:
-        serialinst.write("0".encode())
+    if dir == 0:
+        serialinst.write('f'.encode())
 
     #Back
-    if 1 in dir:
-        serialinst.write("1".encode())
+    if dir == 1:
+        serialinst.write('b'.encode())
 
     #Left
-    if 2 in dir:
-        serialinst.write("2".encode())
+    if dir == 2:
+        serialinst.write('l'.encode())
 
     #Right
-    if 3 in dir:
-        serialinst.write("3".encode())
+    if dir == 3:
+        serialinst.write('r'.encode())
 
-    if 5 in dir:
-        serialinst.write("4".encode())
+    #Clear all steering options
+    if dir == 4:
+        serialinst.write('n'.encode())
+
+    #Stop all operations on the car
+    if dir == 5:
+        serialinst.write('s'.encode())
