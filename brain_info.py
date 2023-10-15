@@ -12,8 +12,10 @@ import csv
 #Creating an instance object 
 serialInst = serial.Serial()
 
+serialRemote = serial.Serial("COM6", 500000)
+
 #Setting up the connection
-serialInst.port = "COM3"
+serialInst.port = "COM5"
 serialInst.baudrate = 500000
 serialInst.open()
 
@@ -26,10 +28,10 @@ fft_result = None
 Threshold value. More the value more pressure to get eyes closed so that the movement can be detected.
 More value more pressure and vice versa
 """
-threshold_freq = 700
+threshold_freq = 950
 
 #Creating the CSV file which will conatin values
-file_path = "C:/Users/hp/Documents/GitHub/FinalYearProject/eeg_data/BlackFrontRedBack/EventEEG/focuscar5.csv"
+file_path = "C:/Users/iteja/OneDrive/Documents/GitHub/FinalYearProject/normal10.csv"
 eeg_file = open(file_path, mode = 'w')
 writer = csv.writer(eeg_file, lineterminator="\n")
 writer.writerow(['Timestamp','Iterations','LowAlpha','LowAlphaPhase','HighAlpha','HighAlphaPhase','LowBeta','LowBetaPhase','HighBeta','HighBetaPhase','LowGamma','LowGammePhase','HighGamma','HighGammaPhase','EyeStatus'])
@@ -188,17 +190,18 @@ while True:
             Table Order
             Timestamp, Iterations, LowAlpha, LowAlphaPhase, HighAlpha, HighAlphaPhase, LowBeta, 
             LowBetaPhase, HighBeta, HighBetaPhase, LowGamma, LowGammaPhase, HighGamma, HighGammaPhase, EyeStatus
-            """
+            
 
             #Inserting Values into CSV Sheet
-            if counter > 500:
+            if counter > 300:
                 writer.writerow([(endtime-start),counter,
                                  lowAlpha,lowAlphaPhase,highAlpha,highAlphaPhase,
                                  lowBeta,lowBetaPhase,highBeta,highBetaPhase,
                                  lowGamma,lowGammaPhase,highGamma,highGammaPhase,
                                  ledState])
 
-            light.append(lowAlpha)
+            """
+            light.append(highGamma)
 
             #print(f"Mean Values{light}")
 
@@ -209,11 +212,13 @@ while True:
                 if ledState != "XXXXXX":
                     #serialInst.write("1".encode())
                     ledState = "XXXXXX"
+                    serialRemote.write('f'.encode())
 
             else:
                 if ledState == "XXXXXX":
-                    #serialInst.write("0".encode())
+                    serialInst.write("0".encode())
                     ledState = "OOOOOO"
+                    serialRemote.write('b'.encode())
 
             print(f"Eyes Status :   {ledState}\n")
 

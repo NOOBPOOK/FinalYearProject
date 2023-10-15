@@ -14,7 +14,7 @@ import joblib
 serialInst = serial.Serial()
 
 #Setting up the connection
-serialInst.port = "COM3"
+serialInst.port = "COM5"
 serialInst.baudrate = 500000
 serialInst.open()
 
@@ -208,10 +208,10 @@ while True:
                 """
 
                 if int(eyePrediction) == 0:
-                    print(f"\n\n********** Your eyes are Open*************\n\n")
+                    print(f"\n\n********** OOOOOOOOOOOOOOOOOOOOOOOOOOOOOO *************\n\n")
                 
                 else:
-                    print(f"\n\n********** Your eyes are Closed*************\n\n")
+                    print(f"\n\n********** Closed *************\n\n")
 
                 if len(prev) == 9:
                     prev.pop(0)
