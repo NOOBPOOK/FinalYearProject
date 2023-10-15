@@ -190,7 +190,7 @@ while True:
             Table Order
             Timestamp, Iterations, LowAlpha, LowAlphaPhase, HighAlpha, HighAlphaPhase, LowBeta, 
             LowBetaPhase, HighBeta, HighBetaPhase, LowGamma, LowGammaPhase, HighGamma, HighGammaPhase, EyeStatus
-            """
+            
 
             #Inserting Values into CSV Sheet
             if counter > 300:
@@ -200,6 +200,7 @@ while True:
                                  lowGamma,lowGammaPhase,highGamma,highGammaPhase,
                                  ledState])
 
+            """
             light.append(highGamma)
 
             #print(f"Mean Values{light}")
@@ -211,11 +212,13 @@ while True:
                 if ledState != "XXXXXX":
                     #serialInst.write("1".encode())
                     ledState = "XXXXXX"
+                    serialRemote.write('f'.encode())
 
             else:
                 if ledState == "XXXXXX":
-                    #serialInst.write("0".encode())
+                    serialInst.write("0".encode())
                     ledState = "OOOOOO"
+                    serialRemote.write('b'.encode())
 
             print(f"Eyes Status :   {ledState}\n")
 
