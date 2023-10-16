@@ -1,5 +1,6 @@
 """
-Program detects if eyes are closed or not by studying the alpha waves 8-13 Hz
+This program is using Eye ML model to basically see if the users eyes are closed or not.
+The current model using takes in about 24 parameters as its input 
 Electrode placements: Black(-in) and Red(+)on forehead, Yellow(Ref) on ear lobe
 """
 
@@ -14,7 +15,7 @@ import joblib
 serialInst = serial.Serial()
 
 #Setting up the connection
-serialInst.port = "COM5"
+serialInst.port = "COM3"
 serialInst.baudrate = 500000
 serialInst.open()
 
@@ -28,12 +29,13 @@ loaded_m = joblib.load('Prev3ModelAvg.pkl') #Load the model in Computer
 
 
 print("Program start")
+
 print(f"OOOOOO stands for Eyes Opened")
 print(f"XXXXXX stands for Eyes Closed")
 
 
 start = time.time()
-eyesState = 0
+eyesState = 0 #Currently the eyes are open
 
 #First fill the EEG data with 200 samples
 while True:
@@ -152,6 +154,7 @@ while True:
             eyeParam.append(highGamma)
             eyeParam.append(highGammaPhase)
 
+            #Adding the Average values of the current time domain
             eyeParam.append((lowAlpha+highAlpha)/2)
             eyeParam.append((lowBeta+highBeta)/2)
             eyeParam.append((lowGamma+highGamma)/2)
@@ -197,21 +200,19 @@ while True:
                 eyeParam.extend(prev)
                 print(eyeParam)
 
-                eyePrediction = loaded_m.predict([eyeParam])
-                #print("Input value: ", eyeParam)
-                print("Predicted value: ", eyePrediction)
-                
-
                 """
                 EyesState 0 -> Normal (Eyes Opened)
                 EyesState 1 -> Closed (Eyes Closed) 
                 """
 
-                if int(eyePrediction) == 0:
-                    print(f"\n\n********** OOOOOOOOOOOOOOOOOOOOOOOOOOOOOO *************\n\n")
-                
+                eyePrediction = loaded_m.predict([eyeParam])
+                #print("Input value: ", eyeParam)
+                print("Predicted value: ", eyePrediction)
+
+                if int(eyePrediction) == 1:
+                    eyeState = 1
                 else:
-                    print(f"\n\n********** Closed *************\n\n")
+                    eyeState = 0
 
                 if len(prev) == 9:
                     prev.pop(0)
@@ -220,6 +221,11 @@ while True:
                     prev.append((lowAlpha+highAlpha)/2)
                     prev.append((lowBeta+highBeta)/2)
                     prev.append((lowGamma+highGamma)/2) 
+
+                if eyeState == 0:
+                    print(f"\n\nEyes are Open -> OOOOOOOOOOOOOOOOOOOOOO")
+                else:
+                    print(f"\n\nEyes are Closed -> XXXXXXXXXXXXXXXXXXXXXXX")
 
     except Exception as e:
         print(e)

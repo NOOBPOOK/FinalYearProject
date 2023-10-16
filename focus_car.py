@@ -1,5 +1,6 @@
 """
-Program detects if eyes are closed or not by studying the alpha waves 8-13 Hz
+Working Code which detects when a mind is concentrated and sends the signal to the Adruino
+This code works without any ML model and uses Simple comparison mechanism to differentiate concentration or not
 Electrode placements: Black(-in) and Red(+)on forehead, Yellow(Ref) on ear lobe
 """
 
@@ -12,10 +13,11 @@ import csv
 #Creating an instance object 
 serialInst = serial.Serial()
 
-serialRemote = serial.Serial("COM6", 500000)
+#Setting up the RemoteControl Connection
+#serialRemote = serial.Serial("COM6", 500000)
 
 #Setting up the connection
-serialInst.port = "COM5"
+serialInst.port = "COM3"
 serialInst.baudrate = 500000
 serialInst.open()
 
@@ -25,31 +27,21 @@ frequencies = None
 fft_result = None
 
 """
-Threshold value. More the value more pressure to get eyes closed so that the movement can be detected.
+Threshold value. Level of concentration needed to move the car forward
 More value more pressure and vice versa
 """
 threshold_freq = 950
-
-#Creating the CSV file which will conatin values
-file_path = "C:/Users/iteja/OneDrive/Documents/GitHub/FinalYearProject/normal10.csv"
-eeg_file = open(file_path, mode = 'w')
-writer = csv.writer(eeg_file, lineterminator="\n")
-writer.writerow(['Timestamp','Iterations','LowAlpha','LowAlphaPhase','HighAlpha','HighAlphaPhase','LowBeta','LowBetaPhase','HighBeta','HighBetaPhase','LowGamma','LowGammePhase','HighGamma','HighGammaPhase','EyeStatus'])
-
-"""
-Table Order
-Timestamp, Iterations, LowAlpha, LowAlphaPhase, HighAlpha, HighAlphaPhase, LowBeta, LowBetaPhase, HighBeta, HighBetaPhase, LowGamma, LowGammaPhase, HighGamma, HighGammaPhase, EyeStatus
-"""
-
-light = []
-
 eeg_data = []
+focus = []
+
+focusState = 0 #Not focus at the start
+
 print("Program start")
-print(f"OOOOOO stands for Eyes Opened")
-print(f"XXXXXX stands for Eyes Closed")
+print("No Focus -> OOOOOOOOO")
+print("Full Focus -> XXXXXXXXX")
+
 start = time.time()
 serialInst.write("0".encode())
-ledState = "OOOOOO"
 
 #First fill the EEG data with 200 samples
 while True:
@@ -99,8 +91,6 @@ while True:
             #print(phase)
             #print(frequencies)
             #print(magnitude)
-
-
 
             #Low alpha hertz frequencies
             mask = (frequencies >= 8) & (frequencies <= 9)
@@ -186,41 +176,25 @@ while True:
             print(f"Time duration {endtime-starttime}")
             print(f"Iteration {counter}")
 
-            """
-            Table Order
-            Timestamp, Iterations, LowAlpha, LowAlphaPhase, HighAlpha, HighAlphaPhase, LowBeta, 
-            LowBetaPhase, HighBeta, HighBetaPhase, LowGamma, LowGammaPhase, HighGamma, HighGammaPhase, EyeStatus
+            #print(f"Mean Values{focus}")
+
+            if len(focus) > 5:
+                focus.pop(0)
             
-
-            #Inserting Values into CSV Sheet
-            if counter > 300:
-                writer.writerow([(endtime-start),counter,
-                                 lowAlpha,lowAlphaPhase,highAlpha,highAlphaPhase,
-                                 lowBeta,lowBetaPhase,highBeta,highBetaPhase,
-                                 lowGamma,lowGammaPhase,highGamma,highGammaPhase,
-                                 ledState])
-
-            """
-            light.append(highGamma)
-
-            #print(f"Mean Values{light}")
-
-            if len(light) > 5:
-                light.pop(0)
-            
-            if all(x > threshold_freq  for x in light):
-                if ledState != "XXXXXX":
-                    #serialInst.write("1".encode())
-                    ledState = "XXXXXX"
-                    serialRemote.write('f'.encode())
+            if all(x > threshold_freq  for x in focus):
+                if focusState != 1:
+                    focusState = 1
+                    #serialRemote.write('f'.encode())#Move the car Forward
 
             else:
-                if ledState == "XXXXXX":
-                    serialInst.write("0".encode())
-                    ledState = "OOOOOO"
-                    serialRemote.write('b'.encode())
+                if focusState == 1:
+                    focusState = 0
+                    #serialRemote.write('b'.encode())#Stop the forward motion when concentration is gone
 
-            print(f"Eyes Status :   {ledState}\n")
+            if focusState == 0:
+                print(f"The user has not Foucsed -> OOOOOOOOOO")
+            else:
+                print(f"The user has full Focused -> XXXXXXXXXXX")
 
         else:
             pass
@@ -228,7 +202,6 @@ while True:
         break
 
 print("The Program has been terminated!")
-eeg_file.close()
 
 
 

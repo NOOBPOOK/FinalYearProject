@@ -12,10 +12,8 @@ import csv
 #Creating an instance object 
 serialInst = serial.Serial()
 
-serialRemote = serial.Serial("COM6", 500000)
-
 #Setting up the connection
-serialInst.port = "COM5"
+serialInst.port = "COM3"
 serialInst.baudrate = 500000
 serialInst.open()
 
@@ -31,11 +29,12 @@ More value more pressure and vice versa
 threshold_freq = 950
 
 #Creating the CSV file which will conatin values
+"""
 file_path = "C:/Users/iteja/OneDrive/Documents/GitHub/FinalYearProject/normal10.csv"
 eeg_file = open(file_path, mode = 'w')
 writer = csv.writer(eeg_file, lineterminator="\n")
 writer.writerow(['Timestamp','Iterations','LowAlpha','LowAlphaPhase','HighAlpha','HighAlphaPhase','LowBeta','LowBetaPhase','HighBeta','HighBetaPhase','LowGamma','LowGammePhase','HighGamma','HighGammaPhase','EyeStatus'])
-
+"""
 """
 Table Order
 Timestamp, Iterations, LowAlpha, LowAlphaPhase, HighAlpha, HighAlphaPhase, LowBeta, LowBetaPhase, HighBeta, HighBetaPhase, LowGamma, LowGammaPhase, HighGamma, HighGammaPhase, EyeStatus
@@ -194,11 +193,13 @@ while True:
 
             #Inserting Values into CSV Sheet
             if counter > 300:
+                """
                 writer.writerow([(endtime-start),counter,
                                  lowAlpha,lowAlphaPhase,highAlpha,highAlphaPhase,
                                  lowBeta,lowBetaPhase,highBeta,highBetaPhase,
                                  lowGamma,lowGammaPhase,highGamma,highGammaPhase,
                                  ledState])
+                """
 
             light.append(highGamma)
 
@@ -225,7 +226,7 @@ while True:
         break
 
 print("The Program has been terminated!")
-eeg_file.close()
+#eeg_file.close()
 
 
 
