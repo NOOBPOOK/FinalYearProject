@@ -1,5 +1,6 @@
 """
-Program detects if eyes are closed or not by studying the alpha waves 8-13 Hz
+Program uses Focus ML model to control the acceleration of the car.
+Uses the ReliableAllDataPrev3 Model
 Electrode placements: Black(-in) and Red(+)on forehead, Yellow(Ref) on ear lobe
 """
 
@@ -15,7 +16,8 @@ model = joblib.load('ReliableAllDataPrev3.pkl')
 #Creating an instance object 
 serialInst = serial.Serial()
 
-serialRemote = serial.Serial("COM4", 500000)
+#Controlling the Remote
+#serialRemote = serial.Serial("COM4", 500000)
 
 #Setting up the connection
 serialInst.port = "COM3"
@@ -26,17 +28,16 @@ serialInst.open()
 fs = 100 
 frequencies = None
 fft_result = None
+waiting_period = 100 #Defines the Waiting time for Buffer
 
-"""
-Threshold value. More the value more pressure to get eyes closed so that the movement can be detected.
-More value more pressure and vice versa
-"""
-threshold_freq = 950
 focus_state = 0
 eeg_data = []
 prev = []
 
 print("Program start")
+
+print(f"No Focus Indiaction -> OOOOOOOOOOOO")
+print(f"Full Foucs Indiaction -> XXXXXXXXXXXX")
 
 start = time.time()
 
@@ -186,13 +187,13 @@ while True:
             print(f"Time duration {endtime-starttime}")
             print(f"Iteration {counter}")
             """
-            if counter > 297 and counter < 301:
+            if counter > (waiting_period-3) and counter < (waiting_period+1):
                 prev.append((lowAlpha+highAlpha)/2)
                 prev.append((lowBeta+highBeta)/2)
                 prev.append((lowGamma+highGamma)/2) 
 
             #Start predicting the status of eyes
-            if counter > 300:
+            if counter > waiting_period:
 
                 #Collection all the parameter inputs for the model and loading it into a array
                 eyeParam.extend(prev)
@@ -201,25 +202,29 @@ while True:
                 focusPrediction = model.predict([eyeParam])
                 #print("Input value: ", eyeParam)
                 print("Predicted value: ", focusPrediction)
-                
 
                 """
                 0 -> No focus
                 1 -> Full Focus
                 """
 
-                if focus_state != 1:
-                    if focusPrediction == 1:
-                        serialRemote.write('f'.encode())
+                if focusPrediction == 1:
+                    if focus_state != 1:
+                        #serialRemote.write('f'.encode())
                         focus_state = 1
+
                 else:
-                    serialRemote.write('b'.encode())
-                    focus_state = 0
+                    if focus_state != 0:
+                        #serialRemote.write('b'.encode())
+                        focus_state = 0
+
+                if not focus_state:
+                    print("\n\nYour Brain is not Focued -> OOOOOOOOOOOOOOOOOO")
+                else:
+                    print("\n\nYour Brain is Focused -> XXXXXXXXXXXXXXXXX")
 
                 if len(prev) == 9:
-                    prev.pop(0)
-                    prev.pop(0)
-                    prev.pop(0)
+                    [prev.pop() for i in range(3)]
                     prev.append((lowAlpha+highAlpha)/2)
                     prev.append((lowBeta+highBeta)/2)
                     prev.append((lowGamma+highGamma)/2) 
