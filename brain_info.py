@@ -29,7 +29,7 @@ More value more pressure and vice versa
 threshold_freq = 700
 
 #Creating the CSV file which will conatin values
-file_path = "C:/Users/hp/Documents/GitHub/FinalYearProject/eeg_data/BlackFrontRedBack/EventEEG/focuscar5.csv"
+file_path = "C:/Users/rutuj/OneDrive/Documents/GitHub/FinalYearProject/FOCUS/ofocus3.csv"
 eeg_file = open(file_path, mode = 'w')
 writer = csv.writer(eeg_file, lineterminator="\n")
 writer.writerow(['Timestamp','Iterations','LowAlpha','LowAlphaPhase','HighAlpha','HighAlphaPhase','LowBeta','LowBetaPhase','HighBeta','HighBetaPhase','LowGamma','LowGammePhase','HighGamma','HighGammaPhase','EyeStatus'])
@@ -191,7 +191,7 @@ while True:
             """
 
             #Inserting Values into CSV Sheet
-            if counter > 500:
+            if counter > 200:
                 writer.writerow([(endtime-start),counter,
                                  lowAlpha,lowAlphaPhase,highAlpha,highAlphaPhase,
                                  lowBeta,lowBetaPhase,highBeta,highBetaPhase,
