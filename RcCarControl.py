@@ -1,5 +1,5 @@
 """
-Program detects if eyes are closed or not by studying the alpha waves 8-13 Hz
+Program takes real time inputs from the user and gives out predictions
 Electrode placements: Black(-in) and Red(+)on forehead, Yellow(Ref) on ear lobe
 """
 
@@ -10,30 +10,22 @@ import numpy as np
 import csv
 import joblib
 
-model = joblib.load('ReliableAllDataPrev3.pkl')
+state_model = joblib.load('NormalFocusEyesCEveryoneP5.pkl')
 
 #Creating an instance object 
-serialInst = serial.Serial()
+serialInst = serial.Serial("COM3", 500000)
 
-serialRemote = serial.Serial("COM4", 500000)
-
-#Setting up the connection
-serialInst.port = "COM3"
-serialInst.baudrate = 500000
-serialInst.open()
+#Creating a remote for controlling the car
+serialRemote = serial.Serial("COM7", 115200)
 
 #Sampling rate (that is 200 samples per second)
 fs = 100 
 frequencies = None
 fft_result = None
-
-"""
-Threshold value. More the value more pressure to get eyes closed so that the movement can be detected.
-More value more pressure and vice versa
-"""
-threshold_freq = 950
-focus_state = 0
+prev_val_counter = 5 #Defines the no. of past inputs to give for prediction
+buffer_period = 100 #Time for buffer to start the process
 eeg_data = []
+focus_state = 0 #0 stands for no focus & 1 stands for full focus
 prev = []
 
 print("Program start")
@@ -186,37 +178,32 @@ while True:
             print(f"Time duration {endtime-starttime}")
             print(f"Iteration {counter}")
             """
-            if counter > 297 and counter < 301:
+            if counter > (buffer_period-prev_val_counter) and counter < (buffer_period+1):
                 prev.append((lowAlpha+highAlpha)/2)
                 prev.append((lowBeta+highBeta)/2)
                 prev.append((lowGamma+highGamma)/2) 
 
             #Start predicting the status of eyes
-            if counter > 300:
+            if counter > buffer_period:
 
                 #Collection all the parameter inputs for the model and loading it into a array
                 eyeParam.extend(prev)
                 print(eyeParam)
 
-                focusPrediction = model.predict([eyeParam])
-                #print("Input value: ", eyeParam)
-                print("Predicted value: ", focusPrediction)
-                
+                #Giving all parameters to both the models
+                statePrediction = state_model.predict([eyeParam])
+                print(f"Predicted Value -> ", statePrediction)
+                if int(statePrediction) != 0:
+                    if focus_state == 0:
+                        if int(statePrediction) == 1:
+                            focus_state = 1
+                            serialRemote.write('F\n'.encode())
+                    else:
+                        if int(statePrediction) == 2:
+                            focus_state = 0
+                            serialRemote.write('S\n'.encode())
 
-                """
-                0 -> No focus
-                1 -> Full Focus
-                """
-
-                if focus_state != 1:
-                    if focusPrediction == 1:
-                        serialRemote.write('f'.encode())
-                        focus_state = 1
-                else:
-                    serialRemote.write('b'.encode())
-                    focus_state = 0
-
-                if len(prev) == 9:
+                if len(prev) == int(prev_val_counter*3):
                     prev.pop(0)
                     prev.pop(0)
                     prev.pop(0)

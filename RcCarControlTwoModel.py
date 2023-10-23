@@ -1,5 +1,5 @@
 """
-Program detects if eyes are closed or not by studying the alpha waves 8-13 Hz
+Program takes real time inputs from the user and gives out predictions with the use of 2 models
 Electrode placements: Black(-in) and Red(+)on forehead, Yellow(Ref) on ear lobe
 """
 
@@ -8,46 +8,31 @@ import matplotlib.pyplot as plt
 import time
 import numpy as np
 import csv
+import joblib
+
+state_model = joblib.load('Normal0Focus1EyesC1EveryoneP5.pkl')
+diff_model = joblib.load('Focus1EyesC0EveryoneP5.pkl')
 
 #Creating an instance object 
-serialInst = serial.Serial()
+serialInst = serial.Serial("COM3", 500000)
 
-#Setting up the connection
-serialInst.port = "COM3"
-serialInst.baudrate = 500000
-serialInst.open()
+#Creating a remote for controlling the car
+serialRemote = serial.Serial("COM7", 115200)
 
 #Sampling rate (that is 200 samples per second)
 fs = 100 
 frequencies = None
 fft_result = None
-
-"""
-Threshold value. More the value more pressure to get eyes closed so that the movement can be detected.
-More value more pressure and vice versa
-"""
-threshold_freq = 700
-
-#Creating the CSV file which will conatin values
-file_path = "C:/Users/hp/Documents/GitHub/FinalYearProject/g.py"
-eeg_file = open(file_path, mode = 'w')
-writer = csv.writer(eeg_file, lineterminator="\n")
-writer.writerow(['Timestamp','Iterations','LowAlpha','LowAlphaPhase','HighAlpha','HighAlphaPhase','LowBeta','LowBetaPhase','HighBeta','HighBetaPhase','LowGamma','LowGammePhase','HighGamma','HighGammaPhase','EyeStatus'])
-
-"""
-Table Order
-Timestamp, Iterations, LowAlpha, LowAlphaPhase, HighAlpha, HighAlphaPhase, LowBeta, LowBetaPhase, HighBeta, HighBetaPhase, LowGamma, LowGammaPhase, HighGamma, HighGammaPhase, EyeStatus
-"""
-
-light = []
-
+prev_val_counter = 5 #Defines the no. of past inputs to give for prediction
+buffer_period = 100 #Time for buffer to start the process
 eeg_data = []
+focus_state = 0  #0 stands for no focus & 1 stands for full focus
+prev = []
+time_ignore = 0
+
 print("Program start")
-print(f"OOOOOO stands for Eyes Opened")
-print(f"XXXXXX stands for Eyes Closed")
+
 start = time.time()
-serialInst.write("0".encode())
-ledState = "OOOOOO"
 
 #First fill the EEG data with 200 samples
 while True:
@@ -74,10 +59,12 @@ magnitude = np.abs(fft_result)
 counter = 0
 
 while True:
+    eyeParam = []
     try:
         #Popping 10 samples from the list and adding new samples into it
         #print(f"*****{serialInst.in_waiting}*******")
         if serialInst.in_waiting > 20:
+            print(counter)
             starttime = time.time()
             counter += 1
             eeg_data = eeg_data[10:]
@@ -98,8 +85,6 @@ while True:
             #print(frequencies)
             #print(magnitude)
 
-
-
             #Low alpha hertz frequencies
             mask = (frequencies >= 8) & (frequencies <= 9)
             filtered_low_alpha_results = fft_result[mask]
@@ -108,6 +93,8 @@ while True:
             magnitude1 = np.abs(filtered_low_alpha_results)
             lowAlpha = np.mean(magnitude1)
             lowAlphaPhase = np.mean(phase)
+            eyeParam.append(lowAlpha)
+            eyeParam.append(lowAlphaPhase)
 
             #High alpha hertz frequencies
             mask = (frequencies >= 10) & (frequencies <= 12)
@@ -117,6 +104,8 @@ while True:
             magnitude2 = np.abs(filtered_high_alpha_results)
             highAlpha = np.mean(magnitude2)
             highAlphaPhase = np.mean(phase)
+            eyeParam.append(highAlpha)
+            eyeParam.append(highAlphaPhase)
 
             #Low Beta hertz frequencies
             mask = (frequencies >= 13) & (frequencies <= 17)
@@ -126,6 +115,8 @@ while True:
             magnitude3 = np.abs(filtered_low_beta_results)
             lowBeta = np.mean(magnitude3)
             lowBetaPhase = np.mean(phase)
+            eyeParam.append(lowBeta)
+            eyeParam.append(lowBetaPhase)
 
             #High Beta hertz frequencies
             mask = (frequencies >= 18) & (frequencies <= 30)
@@ -135,6 +126,8 @@ while True:
             magnitude4 = np.abs(filtered_high_beta_results)
             highBeta = np.mean(magnitude4)
             highBetaPhase = np.mean(phase)
+            eyeParam.append(highBeta)
+            eyeParam.append(highBetaPhase)
 
             #Low Gamma hertz frequencies
             mask = (frequencies >= 30) & (frequencies <= 40)
@@ -144,6 +137,8 @@ while True:
             magnitude5 = np.abs(filtered_low_gamma_results)
             lowGamma = np.mean(magnitude5)
             lowGammaPhase = np.mean(phase)
+            eyeParam.append(lowGamma)
+            eyeParam.append(lowGammaPhase)
 
             #High Gamma hertz frequencies
             mask = (frequencies >= 31) & (frequencies <= 49)
@@ -153,6 +148,8 @@ while True:
             magnitude6 = np.abs(filtered_high_gamma_results)
             highGamma = np.mean(magnitude6)
             highGammaPhase = np.mean(phase)
+            eyeParam.append(highGamma)
+            eyeParam.append(highGammaPhase)
 
             endtime = time.time()
 
@@ -161,7 +158,6 @@ while True:
             print(f"Power of Low Alpha Waves {lowAlpha}")
             print(f"Time duration {endtime-starttime}")
             print(f"Iteration {counter}")
-            """
 
             print(f"Power of Low Alpha Waves {lowAlpha}")
             print(f"Phase of Low Alpha waves {lowAlphaPhase}")
@@ -183,47 +179,58 @@ while True:
 
             print(f"Time duration {endtime-starttime}")
             print(f"Iteration {counter}")
-
             """
-            Table Order
-            Timestamp, Iterations, LowAlpha, LowAlphaPhase, HighAlpha, HighAlphaPhase, LowBeta, 
-            LowBetaPhase, HighBeta, HighBetaPhase, LowGamma, LowGammaPhase, HighGamma, HighGammaPhase, EyeStatus
-            """
+            if counter > (buffer_period-prev_val_counter) and counter < (buffer_period+1):
+                prev.append((lowAlpha+highAlpha)/2)
+                prev.append((lowBeta+highBeta)/2)
+                prev.append((lowGamma+highGamma)/2) 
 
-            #Inserting Values into CSV Sheet
-            if counter > 200:
-                writer.writerow([(endtime-start),counter,
-                                 lowAlpha,lowAlphaPhase,highAlpha,highAlphaPhase,
-                                 lowBeta,lowBetaPhase,highBeta,highBetaPhase,
-                                 lowGamma,lowGammaPhase,highGamma,highGammaPhase,
-                                 ledState])
+            #Start predicting the status of eyes
+            if counter > buffer_period:
 
-            light.append(lowAlpha)
+                #Collection all the parameter inputs for the model and loading it into a array
+                eyeParam.extend(prev)
+                print(eyeParam)
 
-            #print(f"Mean Values{light}")
+                #Giving all parameters to both the models
+                state_prediction = state_model.predict([eyeParam])
+                print(f"Predicted value of First Model ", state_prediction)
+                if int(state_prediction) != 0:
+                    diff_prediction = diff_model.predict([eyeParam])
+                    print(f"Predicted value of Second Model",diff_prediction)
+                    if int(diff_prediction) == 1:
+                        time_ignore += 1
+                        focus_state = 1
+                        serialRemote.write('F\n'.encode())
+                        print("Data Sent >>>> FFFFFFFFFFFFFFF")
+                    else:
+                        if focus_state == 1 and time_ignore > 15:
+                            focus_state = 0
+                            time_ignore = 0
+                            serialRemote.write('S\n'.encode())
+                            print("Data Sent >>>>>>>>> SSSSSSSSSSSSSSSSS")
+                        elif focus_state == 1:
+                            time_ignore += 1
+                else:
+                    if focus_state == 1:
+                        time_ignore += 1
 
-            if len(light) > 5:
-                light.pop(0)
-            
-            if all(x > threshold_freq  for x in light):
-                if ledState != "XXXXXX":
-                    #serialInst.write("1".encode())
-                    ledState = "XXXXXX"
+                if len(prev) == int(prev_val_counter*3):
+                    prev.pop(0)
+                    prev.pop(0)
+                    prev.pop(0)
+                    prev.append((lowAlpha+highAlpha)/2)
+                    prev.append((lowBeta+highBeta)/2)
+                    prev.append((lowGamma+highGamma)/2) 
 
-            else:
-                if ledState == "XXXXXX":
-                    #serialInst.write("0".encode())
-                    ledState = "OOOOOO"
+                print(f"FOCUS STATE {focus_state}")
+                print(f"TIME IGNORE {time_ignore}")
 
-            print(f"Eyes Status :   {ledState}\n")
-
-        else:
-            pass
-    except:
+    except Exception as e:
+        print(e)
         break
 
 print("The Program has been terminated!")
-eeg_file.close()
 
 
 
@@ -231,5 +238,6 @@ eeg_file.close()
 
 
         
+
 
 
