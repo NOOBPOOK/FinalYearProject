@@ -86,7 +86,7 @@ while True:
                 received_value = int(bytes[0] + (bytes[1] << 8))
                 eeg_data.append(received_value)
             
-            #print(eeg_data)
+            print(eeg_data)
 
 
             #Performing FFT and limiting to 8-13 Hz
