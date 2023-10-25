@@ -17,31 +17,8 @@ serialInst.port = "COM3"
 serialInst.baudrate = 500000
 serialInst.open()
 
-#Sampling rate (that is 200 samples per second)
-fs = 100 
-frequencies = None
-fft_result = None
-
-"""
-Threshold value. More the value more pressure to get eyes closed so that the movement can be detected.
-More value more pressure and vice versa
-"""
-threshold_freq = 700
-
-#Creating the CSV file which will conatin values
-file_path = "C:/Users/hp/Documents/GitHub/FinalYearProject/eyeNoMove5.csv"
-eeg_file = open(file_path, mode = 'w')
-writer = csv.writer(eeg_file, lineterminator="\n")
-writer.writerow(['Timestamp','Iterations','LowAlpha','LowAlphaPhase','HighAlpha','HighAlphaPhase','LowBeta','LowBetaPhase','HighBeta','HighBetaPhase','LowGamma','LowGammePhase','HighGamma','HighGammaPhase','EyeStatus'])
-
-"""
-Table Order
-Timestamp, Iterations, LowAlpha, LowAlphaPhase, HighAlpha, HighAlphaPhase, LowBeta, LowBetaPhase, HighBeta, HighBetaPhase, LowGamma, LowGammaPhase, HighGamma, HighGammaPhase, EyeStatus
-"""
-
-light = []
-
 print("Program start")
+
 left = 0
 right = 0
 no_straight = 0
@@ -55,7 +32,7 @@ counter = 0
 while True:
     try:
         counter += 1
-        #print(f"COunter : {counter}")
+        #print(f"Counter : {counter}")
         if counter > 200:
             #Popping 10 samples from the list and adding new samples into it
             #print(f"*****{serialInst.in_waiting}*******")
