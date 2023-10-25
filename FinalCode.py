@@ -40,6 +40,13 @@ right = 0                       #Buffer/Threshold for turning the car right
 no_straight = 0                 #Buffer/Threshold for steering the car straight
 direction_state = 0             #Defines the current direction of the car
 
+"""
+Direction State
+0 -> Straight
+1 -> Left
+2 -> Right
+"""
+
 print("Program start")
 
 start = time.time()
@@ -185,7 +192,7 @@ while True:
                 #Choosing Direction to steer [Consider only 5 values for faster execution]
                 for dir_val in direction_data[::2]:
                     if dir_val > 400 and dir_val < 750:
-                        if direction_state != 0:          #Executes the code only once when state is Changed
+                        if direction_state != 0:
                             no_straight += 1
                             if no_straight > 10:    
                                 print("SSSSSSSSSSSSSSSSSSSSSSSS")
