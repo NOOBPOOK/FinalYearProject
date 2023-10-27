@@ -16,10 +16,10 @@ import time
 import numpy as np
 
 #Creating an instance object 
-serialInst = serial.Serial("COM5", 500000)
+serialInst = serial.Serial("COM3", 500000)
 
 #Creating a remote for controlling the car
-serialRemote = serial.Serial("COM6", 115200)
+serialRemote = serial.Serial("COM4", 115200)
 
 #Sampling rate (that is 100 samples per second)
 fs = 100 
@@ -180,7 +180,7 @@ while True:
 
                 #Collection all the parameter inputs for the model and loading it into a array
                 if focus_state == 0:
-                    if all(x > 900 for x in prev_gamma) == True:
+                    if all(x > 650 for x in prev_gamma) == True:
                         if last_break > 15:
                             focus_state = 1
                             focus_time_ignore = 0
@@ -209,7 +209,6 @@ while True:
                             if left_state == 1:
                                 if left_timeperiod > 50 and left_flag == False:
                                     left_flag = True
-                                    serialRemote.write('S'.encode())
                                     serialRemote.write('L'.encode())
                                     serialRemote.write('S'.encode())
                                 else:
@@ -217,7 +216,6 @@ while True:
                             if right_state == 1:
                                 if right_timeperiod > 50 and right_flag == False:
                                     right_flag = True
-                                    serialRemote.write('S'.encode())
                                     serialRemote.write('R'.encode())
                                     serialRemote.write('S'.encode())
                                 else:

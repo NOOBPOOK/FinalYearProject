@@ -13,9 +13,11 @@ import csv
 serialInst = serial.Serial()
 
 #Setting up the connection
-serialInst.port = "COM5"
+serialInst.port = "COM3"
 serialInst.baudrate = 500000
 serialInst.open()
+
+serialRemote = serial.Serial("COM4",115200)
 
 print("Program start")
 
@@ -49,21 +51,26 @@ while True:
                 received_value = int(bytes[0] + (bytes[1] << 8))
                 #print(received_value)
 
-
                 #Condition for Going Straight
-                if received_value > 480 and received_value < 700:
+                if received_value > 480 and received_value < 650:
                     if state == 0:
                         print("SSSSSSSSSSSSSSSSSSS")
                     if left_state == 1:
-                        if left_timeperiod > 100 and left_flag == False:
+                        if left_timeperiod > 100 and left_flag==False:
                             left_flag = True
                             print("LLLLLLLLLLLLLLLLLLL")
+                            serialRemote.write('L'.encode())
+                            serialRemote.write('S'.encode())
+                            state = 0
                         else:
                             left_timeperiod += 1
                     if right_state == 1:
-                        if right_timeperiod > 100  and right_flag == False:
+                        if right_timeperiod > 100 and right_flag==False:
                             right_flag = True
                             print("RRRRRRRRRRRRRRRRRRR")
+                            serialRemote.write('R'.encode())
+                            serialRemote.write('S'.encode())
+                            state = 0
                         else:
                             right_timeperiod += 1
 
@@ -78,14 +85,14 @@ while True:
                         left_timeperiod = 0
                         left_flag = False
                     else:
-                        if right_tp > 8 and time_ignore > 35:
+                        if right_tp > 2 and time_ignore > 35:
                             right_state = 1
                             state = 2
                         else:
                             right_tp += 1
                 
                 #Condition for Going Left
-                elif received_value > 700:
+                elif received_value > 650:
                     if right_state == 1:
                         state = 0
                         time_ignore = 0
@@ -95,14 +102,17 @@ while True:
                         right_timeperiod = 0
                         right_flag = False
                     else:
-                        if left_tp > 8 and time_ignore > 35:
+                        if left_tp > 2 and time_ignore > 35:
                             left_state = 1
                             state = 1
                         else:
                             left_tp += 1
 
                 time_ignore += 1
+                print(f"Left State {left_state}")
+                print(f"Right State {right_state}")
                 
+    
     except:
         break
 
