@@ -6,7 +6,7 @@ Electrode placements: Black(-in) and Red(+)on forehead, Yellow(Ref) on ear lobe
 import serial
 import matplotlib.pyplot as plt
 import time
-import numpy as np
+import numpy as np 
 import csv
 import joblib
 
@@ -26,8 +26,8 @@ eeg_data = []
 focus_state = 0 #0 stands for no focus & 1 stands for full focus
 prev_alpha = []
 prev_gamma = []
-time_ignore = 0
-time_please = 0
+last_break = 0
+timme_for)ignore = 0
 
 print("Program start")
 
@@ -140,25 +140,27 @@ while True:
 
                 #Collection all the parameter inputs for the model and loading it into a array
                 if focus_state == 0:
-                    if all(x > 850 for x in prev_gamma) == True:
-                        if time_please > 15:
+                    if all(x > 950 for x in prev_gamma) == True:
+                        if last_break > 20:
                             focus_state = 1
-                            time_ignore = 0
+                            last_focus = 0
                             print("Data sent Start Focusing")
-                            serialRemote.write('F\n'.encode())
+                            serialRemote.write('F'.encode())
                 else:
-                    if all(x > 600 for x in prev_alpha) == True:
-                        if focus_state == 1 and time_ignore > 15:
+                    if all(x > 750 for x in prev_alpha) == True:
+                        if focus_state == 1 and last_focus > 20:
                             focus_state = 0
-                            time_please = 0
+                            last_break = 0
                             print("Data Stopped")
-                            serialRemote.write('S\n'.encode())
+                            serialRemote.write('S'.encode())
                 
-                time_ignore += 1
-                time_please += 1
-                print(f"TIMEPLEASE ",time_please)
+                last_break += 1
+                last_focus += 1
+                print(f"Last Break {last_break}")
+                print(f"Last Focus {last_focus}")
+                print(f"FOCUS_STATE {focus_state}")
 
-                if len(prev_alpha) == 5:
+                if len(prev_alpha) == 10:
                     prev_alpha.pop(0)
                 if len(prev_gamma) == 5:
                     prev_gamma.pop(0)

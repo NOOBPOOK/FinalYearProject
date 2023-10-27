@@ -19,13 +19,13 @@ import numpy as np
 serialInst = serial.Serial("COM5", 500000)
 
 #Creating a remote for controlling the car
-serialRemote = serial.Serial("COM3", 115200)
+serialRemote = serial.Serial("COM6", 115200)
 
 #Sampling rate (that is 100 samples per second)
 fs = 100 
 frequencies = None
 fft_result = None
-buffer_period = 200             #Time for buffer to start the process
+buffer_period = 100             #Time for buffer to start the process
 eeg_data = []                   #Stores the Real Time EEG Data (100 samples)
 direction_data = []             #Array to store Direction Data
 direction_value = 0             #Actually stores the Direction Data
@@ -42,6 +42,7 @@ left_state = 0
 right_state = 0
 left_timeperiod = 0
 right_timeperiod = 0
+focus_time_ignore = 0
 time_ignore = 0
 left_flag = False
 right_flag = False
@@ -182,73 +183,80 @@ while True:
                     if all(x > 900 for x in prev_gamma) == True:
                         if last_break > 15:
                             focus_state = 1
+                            focus_time_ignore = 0
                             last_focus = 0
                             print("Data sent Start Focusing")
-                            serialRemote.write('F\n'.encode())
+                            serialRemote.write('F'.encode())
                 else:
                     if all(x > 750 for x in prev_alpha) == True:
                         if focus_state == 1 and last_focus > 15:
                             focus_state = 0
                             last_break = 0
                             print("Data Stopped")
-                            serialRemote.write('S\n'.encode())
+                            serialRemote.write('S'.encode())
 
                 last_focus += 1
                 last_break += 1
+                focus_time_ignore += 1
 
                 #Choosing Direction to steer [Consider only 5 values for faster execution]
-                for dir_val in direction_data[::2]:
-                    #Condition for Going Straight
-                    if received_value > 480 and received_value < 700:
-                        if state == 0:
-                            print("SSSSSSSSSSSSSSSSSSS")
-                        if left_state == 1:
-                            if left_timeperiod > 100 and left_flag == False:
-                                left_flag = True
-                                serialRemote.encode('L\n'.encode())
-                            else:
-                                left_timeperiod += 1
-                        if right_state == 1:
-                            if right_timeperiod > 100  and right_flag == False:
-                                right_flag = True
-                                serialRemote.encode('R\n'.encode())
-                            else:
-                                right_timeperiod += 1
+                if focus_state == 1 and focus_time_ignore > 100:
+                    for dir_val in direction_data:
+                        #Condition for Going Straight
+                        if received_value > 480 and received_value < 700:
+                            if state == 0:
+                                print("SSSSSSSSSSSSSSSSSSS")
+                            if left_state == 1:
+                                if left_timeperiod > 50 and left_flag == False:
+                                    left_flag = True
+                                    serialRemote.write('S'.encode())
+                                    serialRemote.write('L'.encode())
+                                    serialRemote.write('S'.encode())
+                                else:
+                                    left_timeperiod += 1
+                            if right_state == 1:
+                                if right_timeperiod > 50 and right_flag == False:
+                                    right_flag = True
+                                    serialRemote.write('S'.encode())
+                                    serialRemote.write('R'.encode())
+                                    serialRemote.write('S'.encode())
+                                else:
+                                    right_timeperiod += 1
 
-                    #Condition for Goig Right
-                    elif received_value < 480:
-                        if left_state == 1:
-                            state = 0
-                            time_ignore = 0
-                            left_tp = 0
-                            right_tp = 0
-                            left_state = 0
-                            left_timeperiod = 0
-                            left_flag = False
-                        else:
-                            if right_tp > 8 and time_ignore > 35:
-                                right_state = 1
-                                state = 2
+                        #Condition for Goig Right
+                        elif received_value < 480:
+                            if left_state == 1:
+                                state = 0
+                                time_ignore = 0
+                                left_tp = 0
+                                right_tp = 0
+                                left_state = 0
+                                left_timeperiod = 0
+                                left_flag = False
                             else:
-                                right_tp += 1
-                    
-                    #Condition for Going Left
-                    elif received_value > 700:
-                        if right_state == 1:
-                            state = 0
-                            time_ignore = 0
-                            left_tp = 0
-                            right_tp = 0
-                            right_state = 0
-                            right_timeperiod = 0
-                            right_flag = False
-                        else:
-                            if left_tp > 8 and time_ignore > 35:
-                                left_state = 1
-                                state = 1
+                                if right_tp > 8 and time_ignore > 35:
+                                    right_state = 1
+                                    state = 2
+                                else:
+                                    right_tp += 1
+                        
+                        #Condition for Going Left
+                        elif received_value > 700:
+                            if right_state == 1:
+                                state = 0
+                                time_ignore = 0
+                                left_tp = 0
+                                right_tp = 0
+                                right_state = 0
+                                right_timeperiod = 0
+                                right_flag = False
                             else:
-                                left_tp += 1
-                    time_ignore += 1
+                                if left_tp > 8 and time_ignore > 35:
+                                    left_state = 1
+                                    state = 1
+                                else:
+                                    left_tp += 1
+                        time_ignore += 1
                 
                 print(f"Last Focus ", last_focus)
                 print(f"Last Break ", last_break)

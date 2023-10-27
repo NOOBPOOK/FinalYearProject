@@ -16,7 +16,7 @@ import time
 import numpy as np
 
 #Creating an instance object 
-serialInst = serial.Serial("COM3", 500000)
+serialInst = serial.Serial("COM5", 500000)
 
 #Creating a remote for controlling the car
 serialRemote = serial.Serial("COM6", 115200)
@@ -172,25 +172,35 @@ while True:
 
                 #Collection all the parameter inputs for the model and loading it into a array
                 if focus_state == 0:
-                    if all(x > 900 for x in prev_gamma) == True:
-                        if last_break > 15:
+                    if all(x > 950 for x in prev_gamma) == True:
+                        if last_break > 20:
                             focus_state = 1
                             last_focus = 0
                             print("Data sent Start Focusing")
                             serialRemote.write('F\n'.encode())
                 else:
                     if all(x > 750 for x in prev_alpha) == True:
-                        if focus_state == 1 and last_focus > 15:
+                        if focus_state == 1 and last_focus > 20:
                             focus_state = 0
                             last_break = 0
                             print("Data Stopped")
                             serialRemote.write('S\n'.encode())
-
-                last_focus += 1
+                
                 last_break += 1
+                last_focus += 1
+
+                print(f"Last Break {last_break}")
+                print(f"Last Focus {last_focus}")
+                print(f"FOCUS_STATE {focus_state}")
+
+                #Always maintain the window of previous inputs to be considered for output
+                if len(prev_alpha) == 7:
+                    prev_alpha.pop(0)
+                if len(prev_gamma) == 5:
+                    prev_gamma.pop(0)
 
                 #Choosing Direction to steer [Consider only 5 values for faster execution]
-                for dir_val in direction_data[::2]:
+                for dir_val in direction_data:
                     if dir_val > 400 and dir_val < 750:
                         if direction_state != 0:
                             no_straight += 1
@@ -223,16 +233,7 @@ while True:
                                 no_straight = 0
                                 direction_state = 2
                 
-                print(f"Last Focus ", last_focus)
-                print(f"Last Break ", last_break)
-                print(f"Focus State ", focus_state)
                 print(f"Direction State ", direction_state)
-
-                #Always maintain the window of previous inputs to be considered for output
-                if len(prev_alpha) == 10:
-                    prev_alpha.pop(0)
-                if len(prev_gamma) == 5:
-                    prev_gamma.pop(0)
 
     except Exception as e:
         print(e)
