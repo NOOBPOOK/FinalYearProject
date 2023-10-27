@@ -14,10 +14,10 @@ state_model = joblib.load('Normal0Focus1EyesC1EveryoneP5.pkl')
 diff_model = joblib.load('Focus1EyesC0EveryoneP5.pkl')
 
 #Creating an instance object 
-serialInst = serial.Serial("COM3", 500000)
+serialInst = serial.Serial("COM5", 500000)
 
 #Creating a remote for controlling the car
-serialRemote = serial.Serial("COM7", 115200)
+serialRemote = serial.Serial("COM4", 115200)
 
 #Sampling rate (that is 200 samples per second)
 fs = 100 

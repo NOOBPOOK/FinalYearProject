@@ -13,13 +13,13 @@ import joblib
 state_model = joblib.load('NormalFocusEyesCEveryoneP5.pkl')
 
 #Creating an instance object 
-serialInst = serial.Serial("COM3", 500000)
+serialInst = serial.Serial("COM5", 500000)
 
 #Creating a remote for controlling the car
-serialRemote = serial.Serial("COM7", 115200)
+serialRemote = serial.Serial("COM4", 115200)
 
 #Sampling rate (that is 200 samples per second)
-fs = 100 
+fs = 100  
 frequencies = None
 fft_result = None
 prev_val_counter = 5 #Defines the no. of past inputs to give for prediction
