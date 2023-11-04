@@ -19,7 +19,7 @@ import numpy as np
 serialInst = serial.Serial("COM3", 500000)
 
 #Creating a remote for controlling the car
-serialRemote = serial.Serial("COM4", 115200)
+serialRemote = serial.Serial("COM5", 115200)
 
 #Sampling rate (that is 100 samples per second)
 fs = 100 
@@ -182,48 +182,51 @@ while True:
                 if focus_state == 0:
                     if all(x > 700 for x in prev_gamma) == True:
                         if focus_state != 1:
-                            if last_break > 15:
+                            if last_break > 20:
                                 focus_state = 1
                                 last_focus = 0
-                                focus_time_ignore = 0
-                                print("Data sent Start Focusing")
-                                serialRemote.write('F'.encode())
+                                print("Data sent Start FocusingOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
+                                serialRemote.write('FFFFFFF\n'.encode())
                 else:
-                    if all(x > 1000 for x in prev_alpha) == True:
-                        if focus_state == 1 and last_focus > 15:
+                    if all(x > 650 for x in prev_alpha) == True:
+                        if focus_state == 1 and last_focus > 20:
                             focus_state = 0
                             last_break = 0
-                            print("Data Stopped")
-                            serialRemote.write('S'.encode())
+                            focus_time_ignore = 0
+                            print("Data StoppedXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+                            serialRemote.write('SSSSSSSSSS\n'.encode())
 
                 last_focus += 1
                 last_break += 1
                 focus_time_ignore += 1
 
                 #Choosing Direction to steer [Consider only 5 values for faster execution]
-                if focus_state == 1 and focus_time_ignore > 50:
+                if focus_state == 0 and focus_time_ignore > 50:
                     print("Choosing Direction")
+                    print(f"Time Ignore {time_ignore}")
                     for op in range(3):
+                        print(direction_data[:3])
                         #Condition for Going Right
-                        if all(x > 600 for x in direction_data[:3]) and time_ignore > 150:
-                            print("LLLLLLLLLLLLLLLLL")
-                            serialRemote.write('L'.encode())
-                            serialRemote.write('S'.encode())
-                            time_ignore = 0
-                        
                         #Condition for Going Left
-                        elif all(x < 490 for x in direction_data[:3]) and time_ignore > 150:
-                            print("RRRRRRRRRRRRRRRR")
-                            serialRemote.write('R'.encode())
-                            serialRemote.write('S'.encode())
+                        if all(x < 450 for x in direction_data[:3]) and time_ignore > 50:
+                            print("RRRRRRRRRRRRRRRR\nRRRRRRRRRRRRRRRRR\nRRRRRRRRRRRRRRR\nRRRRRRRRRRRRRRR")
+                            serialRemote.write('RRRRRR\n'.encode())
                             time_ignore = 0
+                            focus_state = 0
+
+                        elif all(x > 730 for x in direction_data[:3]) and time_ignore > 50:
+                            print("LLLLLLLLLLLLLLLLL\nLLLLLLLLLLLLL\nLLLLLLLLLLLLLLLLLLLLL\nLLLLLLLLLLLLLLLLLLLLL")
+                            serialRemote.write('LLLLLLL\n'.encode())
+                            time_ignore = 0
+                            focus_state = 0
                         
-                        time_ignore += 1
                         
                         #print(dir_data)
                         direction_data.pop(0)
                         direction_data.pop(0)
                         direction_data.pop(0)
+
+                    time_ignore += 1
                 
                 print(f"Last Focus ", last_focus)
                 print(f"Last Break ", last_break)
@@ -231,7 +234,7 @@ while True:
                 print(f"Direction State ", state)
 
                 #Always maintain the window of previous inputs to be considered for output
-                if len(prev_alpha) == 7:
+                if len(prev_alpha) == 5:
                     prev_alpha.pop(0)
                 if len(prev_gamma) == 5:
                     prev_gamma.pop(0)
