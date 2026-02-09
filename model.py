@@ -16,3 +16,4 @@ m=LinearRegression()
 m.fit(xtrain.values,ytrain.values)
 
 joblib.dump(m, 'trained_model.pkl')
+print("model saved successfully")
